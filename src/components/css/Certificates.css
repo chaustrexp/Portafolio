@@ -1,0 +1,384 @@
+/* ===================================
+   CERTIFICATES COMPONENT STYLES
+   =================================== */
+
+.certificates-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #F5F0E8 0%, #F8F4EF 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de fondo */
+.certificates-bg-effect {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(245, 240, 232, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.certificates-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.certificates-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #000000;
+  position: relative;
+  padding-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.certificates-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: #000000;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid de certificados */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Tarjeta de certificado */
+.certificate-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(248, 244, 239, 0.9));
+  padding: 2rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(61, 58, 57, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(61, 58, 57, 0.1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+}
+
+/* Barra superior */
+.certificate-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #F8F4EF, #F0E6D9, #F5F0E8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  box-shadow: 0 0 20px rgba(245, 240, 232, 0.6);
+}
+
+.certificate-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Efecto de hover */
+.certificate-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(245, 240, 232, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.certificate-card:hover::after {
+  opacity: 1;
+}
+
+.certificate-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 30px 80px rgba(61, 58, 57, 0.2), 
+              0 0 60px rgba(61, 58, 57, 0.15),
+              0 0 40px rgba(248, 244, 239, 0.4);
+  border-color: rgba(61, 58, 57, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 240, 232, 0.98));
+}
+
+/* Contenido de la tarjeta */
+.certificate-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Icono del certificado */
+.certificate-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  filter: drop-shadow(0 8px 15px rgba(245, 240, 232, 0.5));
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  line-height: 1;
+}
+
+.certificate-card:hover .certificate-icon {
+  transform: scale(1.25) rotate(-5deg) translateY(-8px);
+  filter: drop-shadow(0 15px 30px rgba(245, 240, 232, 0.7));
+}
+
+/* Título del certificado */
+.certificate-title {
+  color: #000000;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.certificate-card:hover .certificate-title {
+  color: #000000;
+}
+
+/* Institución */
+.certificate-institution {
+  color: #000000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.certificate-card:hover .certificate-institution {
+  color: #3D3A39;
+}
+
+/* Descripción */
+.certificate-description {
+  color: #5A5755;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  text-align: justify;
+  hyphens: auto;
+  transition: color 0.3s ease;
+}
+
+.certificate-card:hover .certificate-description {
+  color: #3D3A39;
+}
+
+/* Botón del certificado */
+.certificate-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #F8F4EF, #F0E6D9);
+  color: #3D3A39;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(245, 240, 232, 0.4);
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(61, 58, 57, 0.1);
+}
+
+.certificate-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.certificate-button:hover::before {
+  left: 100%;
+}
+
+.certificate-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(245, 240, 232, 0.6);
+  background: linear-gradient(135deg, #F0E6D9, #EDE3D6);
+  border-color: rgba(61, 58, 57, 0.2);
+}
+
+.certificate-card:hover .certificate-button {
+  box-shadow: 0 6px 25px rgba(245, 240, 232, 0.7);
+}
+
+/* Animaciones de entrada */
+.certificate-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: certificateCardFadeIn 0.6s ease forwards;
+}
+
+.certificate-card:nth-child(1) { animation-delay: 0.1s; }
+.certificate-card:nth-child(2) { animation-delay: 0.2s; }
+.certificate-card:nth-child(3) { animation-delay: 0.3s; }
+.certificate-card:nth-child(4) { animation-delay: 0.4s; }
+.certificate-card:nth-child(5) { animation-delay: 0.5s; }
+.certificate-card:nth-child(6) { animation-delay: 0.6s; }
+.certificate-card:nth-child(7) { animation-delay: 0.7s; }
+.certificate-card:nth-child(8) { animation-delay: 0.8s; }
+.certificate-card:nth-child(9) { animation-delay: 0.9s; }
+.certificate-card:nth-child(10) { animation-delay: 1s; }
+
+@keyframes certificateCardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .certificates-section {
+    padding: 4rem 0;
+  }
+  
+  .certificates-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .certificate-card {
+    padding: 1.5rem;
+  }
+  
+  .certificate-icon {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .certificate-title {
+    font-size: 1.4rem;
+  }
+  
+  .certificate-institution {
+    font-size: 1rem;
+  }
+  
+  .certificate-description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .certificate-card {
+    margin-bottom: 1rem;
+  }
+  
+  .certificate-description {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificates-section {
+    padding: 3rem 0;
+  }
+  
+  .certificates-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .certificate-card {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .certificate-icon {
+    font-size: 4rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .certificate-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .certificate-institution {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .certificate-description {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .certificate-button {
+    font-size: 0.85rem;
+    padding: 8px 20px;
+  }
+}
+
+/* Efectos especiales */
+.certificate-card {
+  cursor: pointer;
+}
+
+.certificate-card:hover {
+  cursor: default;
+}
+
+/* Efecto de brillo especial para certificados importantes */
+.certificate-card:nth-child(10) {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(248, 244, 239, 0.9));
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.certificate-card:nth-child(10)::before {
+  background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+}
+
+.certificate-card:nth-child(10):hover {
+  box-shadow: 0 30px 80px rgba(255, 215, 0, 0.3), 
+              0 0 60px rgba(255, 215, 0, 0.2),
+              0 0 40px rgba(248, 244, 239, 0.4);
+}

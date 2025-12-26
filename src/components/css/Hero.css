@@ -1,0 +1,265 @@
+/* ===================================
+   HERO SPLIT SCREEN STYLES
+   =================================== */
+
+/* Animaciones personalizadas */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para iconos sociales verticales */
+.social-icons-vertical {
+  position: fixed;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  color: #F8F8F8;
+  transition: color 0.3s ease;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.social-icon:hover {
+  color: #CCCCCC;
+}
+
+.follow-text {
+  margin-top: 2rem;
+  color: #999999;
+  font-size: 0.875rem;
+  transform: rotate(90deg);
+  transform-origin: center;
+  white-space: nowrap;
+}
+
+/* Contenedor principal split */
+.hero-split-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Lado izquierdo - Texto */
+.hero-left-side {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5rem;
+  padding-right: 2rem;
+}
+
+.hero-content-wrapper {
+  max-width: 28rem;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-main-title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #F8F8F8;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.875rem;
+  font-weight: 300;
+  color: #F8F8F8;
+  margin-bottom: 2rem;
+}
+
+.hero-description {
+  color: #E5E5E5;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-btn {
+  padding: 0.75rem 2rem;
+  background: transparent;
+  border: 1px solid #F8F8F8;
+  color: #F8F8F8;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  background: #F8F8F8;
+  color: #000000;
+}
+
+/* Lado derecho - Imagen */
+.hero-right-side {
+  width: 50%;
+  position: relative;
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.2));
+  z-index: 10;
+}
+
+.hero-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.7s ease;
+}
+
+.hero-main-image:hover {
+  filter: grayscale(0%);
+}
+
+/* Puntos decorativos */
+.decorative-dot-1 {
+  position: absolute;
+  top: 5rem;
+  right: 5rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #F8F8F8;
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+.decorative-dot-2 {
+  position: absolute;
+  bottom: 8rem;
+  right: 8rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #CCCCCC;
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-left-side {
+    padding-left: 3rem;
+  }
+  
+  .hero-main-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-split-container {
+    flex-direction: column;
+  }
+  
+  .hero-left-side,
+  .hero-right-side {
+    width: 100%;
+  }
+  
+  .hero-left-side {
+    padding: 2rem;
+    min-height: 60vh;
+  }
+  
+  .hero-right-side {
+    min-height: 40vh;
+  }
+  
+  .social-icons-vertical {
+    display: none;
+  }
+  
+  .hero-main-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  
+  .hero-description {
+    text-align: center;
+  }
+  
+  .hero-buttons-container {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .decorative-dot-1 {
+    top: 2rem;
+    right: 2rem;
+  }
+  
+  .decorative-dot-2 {
+    bottom: 2rem;
+    right: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left-side {
+    padding: 1rem;
+  }
+  
+  .hero-main-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

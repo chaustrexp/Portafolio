@@ -1,0 +1,330 @@
+/* ===================================
+   FOOTER COMPONENT STYLES
+   =================================== */
+
+.footer-section {
+  background: linear-gradient(180deg, transparent, rgba(248, 244, 239, 0.8));
+  padding: 4rem 0;
+  text-align: center;
+  border-top: 2px solid rgba(61, 58, 57, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Barra superior decorativa */
+.footer-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #F8F4EF, transparent);
+  box-shadow: 0 0 20px rgba(245, 240, 232, 0.5);
+}
+
+/* Efecto de fondo sutil */
+.footer-section::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(248, 244, 239, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Texto principal del footer */
+.footer-text {
+  color: #7A7673;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(122, 118, 115, 0.1);
+  transition: color 0.3s ease;
+}
+
+.footer-text:hover {
+  color: #5A5755;
+}
+
+/* Enlaces adicionales del footer (opcional) */
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-link {
+  color: #7A7673;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: #5A5755;
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #3D3A39;
+  background: rgba(248, 244, 239, 0.3);
+}
+
+.footer-link:hover::after {
+  width: 80%;
+}
+
+/* Separador decorativo */
+.footer-divider {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #7A7673, transparent);
+  margin: 1rem 0;
+  opacity: 0.5;
+}
+
+/* Información adicional */
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #7A7673;
+  opacity: 0.8;
+}
+
+.footer-made-with {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #7A7673;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.footer-made-with:hover {
+  opacity: 1;
+}
+
+.footer-heart {
+  color: #ef4444;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Tecnologías utilizadas */
+.footer-tech-stack {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.footer-tech-item {
+  background: rgba(248, 244, 239, 0.3);
+  color: #5A5755;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(61, 58, 57, 0.1);
+  transition: all 0.3s ease;
+}
+
+.footer-tech-item:hover {
+  background: rgba(248, 244, 239, 0.5);
+  border-color: rgba(61, 58, 57, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Animación de entrada */
+.footer-content {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: footerFadeIn 0.8s ease 0.5s forwards;
+}
+
+@keyframes footerFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 3rem 0;
+  }
+  
+  .footer-links {
+    gap: 1rem;
+  }
+  
+  .footer-link {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .footer-text {
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .footer-tech-stack {
+    gap: 0.5rem;
+  }
+  
+  .footer-tech-item {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-section {
+    padding: 2rem 0;
+  }
+  
+  .footer-content {
+    gap: 1.5rem;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer-text {
+    font-size: 0.85rem;
+    padding: 0 1rem;
+  }
+  
+  .footer-made-with {
+    font-size: 0.75rem;
+  }
+  
+  .footer-info {
+    font-size: 0.8rem;
+  }
+}
+
+/* Efectos especiales */
+.footer-section:hover::after {
+  opacity: 0.8;
+  transform: translateX(-50%) scale(1.2);
+  transition: all 0.5s ease;
+}
+
+/* Scroll to top button (opcional) */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #F8F4EF, #F0E6D9);
+  border: 2px solid rgba(61, 58, 57, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(61, 58, 57, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(61, 58, 57, 0.3);
+  background: linear-gradient(135deg, #F0E6D9, #EDE3D6);
+}
+
+.scroll-to-top::before {
+  content: '↑';
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3D3A39;
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  .scroll-to-top::before {
+    font-size: 1.1rem;
+  }
+}
+
+/* Efecto de ondas en el fondo */
+.footer-waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23F8F4EF'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23F8F4EF'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23F8F4EF'/%3E%3C/svg%3E") repeat-x;
+  background-size: 1200px 120px;
+  opacity: 0.3;
+  animation: waveMove 20s ease-in-out infinite;
+}
+
+@keyframes waveMove {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-50px); }
+}

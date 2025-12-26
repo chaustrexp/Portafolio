@@ -1,0 +1,361 @@
+/* ===================================
+   HOBBIES COMPONENT STYLES
+   =================================== */
+
+.hobbies-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #F8F4EF 0%, #F5F0E8 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de fondo */
+.hobbies-bg-effect {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(38, 36, 36, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hobbies-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.hobbies-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #000000;
+  position: relative;
+  padding-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hobbies-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: #000000;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid de hobbies */
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjeta de hobby */
+.hobby-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(248, 244, 239, 0.9));
+  padding: 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(61, 58, 57, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(61, 58, 57, 0.1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+}
+
+/* Barra superior */
+.hobby-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #F0E6D9, #F8F4EF, #F5F0E8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.hobby-card:hover::before {
+  transform: scaleX(1);
+}
+
+.hobby-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(61, 58, 57, 0.2), 
+              0 0 50px rgba(61, 58, 57, 0.15),
+              0 0 30px rgba(248, 244, 239, 0.3);
+  border-color: rgba(61, 58, 57, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 240, 232, 0.98));
+}
+
+/* Contenido de la tarjeta */
+.hobby-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Icono del hobby */
+.hobby-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  filter: drop-shadow(0 6px 12px rgba(61, 58, 57, 0.2));
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  line-height: 1;
+}
+
+.hobby-card:hover .hobby-icon {
+  transform: scale(1.15) rotate(5deg) translateY(-3px);
+  filter: drop-shadow(0 10px 20px rgba(61, 58, 57, 0.3));
+}
+
+/* Título del hobby */
+.hobby-title {
+  color: #000000;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.hobby-card:hover .hobby-title {
+  color: #3D3A39;
+}
+
+/* Descripción del hobby */
+.hobby-description {
+  color: #5A5755;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 400;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.hobby-card:hover .hobby-description {
+  color: #3D3A39;
+}
+
+/* Animaciones de entrada */
+.hobby-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: hobbyCardFadeIn 0.6s ease forwards;
+}
+
+.hobby-card:nth-child(1) { animation-delay: 0.1s; }
+.hobby-card:nth-child(2) { animation-delay: 0.2s; }
+.hobby-card:nth-child(3) { animation-delay: 0.3s; }
+.hobby-card:nth-child(4) { animation-delay: 0.4s; }
+.hobby-card:nth-child(5) { animation-delay: 0.5s; }
+.hobby-card:nth-child(6) { animation-delay: 0.6s; }
+.hobby-card:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes hobbyCardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efectos especiales para hobbies específicos */
+.hobby-card:nth-child(1) .hobby-icon { /* Música */
+  animation: musicPulse 2s ease-in-out infinite;
+}
+
+.hobby-card:nth-child(3) .hobby-icon { /* Voleibol */
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.hobby-card:nth-child(7) .hobby-icon { /* Bailar */
+  animation: dance 3s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes dance {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .hobbies-section {
+    padding: 4rem 0;
+  }
+  
+  .hobbies-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .hobby-card {
+    padding: 1.25rem;
+  }
+  
+  .hobby-icon {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .hobby-title {
+    font-size: 1.2rem;
+  }
+  
+  .hobby-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hobbies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  
+  .hobby-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hobbies-section {
+    padding: 3rem 0;
+  }
+  
+  .hobbies-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .hobby-card {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hobby-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hobby-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .hobby-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 360px) {
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hobby-card {
+    max-width: 280px;
+    margin: 0 auto 0.75rem auto;
+  }
+}
+
+/* Efectos adicionales */
+.hobby-card {
+  cursor: pointer;
+}
+
+.hobby-card:hover {
+  cursor: default;
+}
+
+/* Efecto de brillo sutil */
+.hobby-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(248, 244, 239, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.hobby-card:hover::after {
+  opacity: 1;
+}
+
+/* Variaciones de color para diferentes hobbies */
+.hobby-card:nth-child(1):hover { /* Música */
+  border-color: rgba(147, 51, 234, 0.3);
+}
+
+.hobby-card:nth-child(2):hover { /* Inglés */
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.hobby-card:nth-child(3):hover { /* Voleibol */
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.hobby-card:nth-child(4):hover { /* Ejercicio */
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.hobby-card:nth-child(5):hover { /* Series */
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.hobby-card:nth-child(6):hover { /* Diseñar */
+  border-color: rgba(236, 72, 153, 0.3);
+}
+
+.hobby-card:nth-child(7):hover { /* Bailar */
+  border-color: rgba(168, 85, 247, 0.3);
+}

@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importar estilos de componentes */
+@import './components/css/index.css';
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  body {
+    @apply font-poppins bg-gradient-to-br from-oatmilk-100 via-oatmilk-200 to-oatmilk-100 text-oatmilk-900 leading-relaxed overflow-x-hidden;
+    background-attachment: fixed;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(38, 36, 36, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(38, 36, 36, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(38, 36, 36, 0.05) 0px, transparent 50%);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-black to-gray-800 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    @apply absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-500;
+  }
+  
+  .btn-primary:hover::before {
+    @apply left-full;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent text-black border-2 border-black px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-black hover:text-white hover:-translate-y-1 relative overflow-hidden;
+  }
+  
+  .card-glass {
+    @apply bg-gradient-to-br from-white/80 to-oatmilk-100/95 backdrop-blur-lg border-2 border-oatmilk-900/20 rounded-3xl shadow-epic;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl;
+  }
+  
+  .section-title {
+    @apply text-5xl font-extrabold text-center mb-16 text-black relative pb-4;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-black rounded-full shadow-sm;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 0.5s;
+  }
+  
+  .animate-delay-700 {
+    animation-delay: 0.7s;
+  }
+  
+  .animate-delay-1000 {
+    animation-delay: 1s;
+  }
+}
