@@ -4,55 +4,59 @@ import React from 'react';
  * Componente Experience - Sección de experiencia laboral del portafolio
  * 
  * Muestra las diferentes áreas de especialización y experiencia profesional
- * del desarrollador, organizadas en tarjetas interactivas con efectos visuales.
+ * del desarrollador con un diseño moderno de tarjetas con bordes inferiores brillantes.
  * 
  * @component
  * @returns {JSX.Element} Sección de experiencia laboral
  */
 const Experience = () => {
   // Array de objetos que contiene la información de experiencia profesional
-  // Cada objeto representa una especialización o área de trabajo
   const experiences = [
     {
-      title: "Análisis de Requerimientos de Software",
+      title: "Análisis de Requerimientos",
       company: "Tecnólogo ADSO",
       institution: "SENA",
-      description: "Análisis y documentación de requerimientos funcionales y no funcionales de software. Participación en la definición de arquitecturas de soluciones tecnológicas, aplicando metodologías ágiles y mejores prácticas de ingeniería de software.",
+      description: "Análisis y documentación de requerimientos funcionales y no funcionales de software. Participación en la definición de arquitecturas de soluciones tecnológicas aplicando metodologías ágiles.",
       icon: "📋",
+      borderGradient: "from-oatmilk-400 via-oatmilk-500 to-oatmilk-600",
+      iconBg: "bg-gradient-to-br from-oatmilk-400 to-oatmilk-500",
       skills: ["Análisis", "Documentación", "Metodologías Ágiles"]
     },
     {
       title: "Desarrollo Full-Stack",
       company: "Tecnólogo ADSO", 
       institution: "SENA",
-      description: "Desarrollo de aplicaciones web completas con enfoque full-stack, participando activamente en el desarrollo tanto del frontend como del backend. Implementación de soluciones tecnológicas integrales que conectan la lógica del negocio con interfaces de usuario intuitivas.",
+      description: "Desarrollo de aplicaciones web completas con enfoque full-stack, participando activamente en el desarrollo tanto del frontend como del backend con soluciones tecnológicas integrales.",
       icon: "💻",
+      borderGradient: "from-oatmilk-500 via-oatmilk-600 to-oatmilk-700",
+      iconBg: "bg-gradient-to-br from-oatmilk-500 to-oatmilk-600",
       skills: ["Frontend", "Backend", "APIs"]
     },
     {
-      title: "Especialización Frontend & UI/UX",
+      title: "UI/UX & Frontend",
       company: "Tecnólogo ADSO",
       institution: "SENA", 
-      description: "Especialización en desarrollo frontend y diseño de interfaces de usuario (UI/UX). Creación de experiencias visuales atractivas combinando programación con diseño gráfico, incluyendo desarrollo de posters, afiches y branding para proyectos tecnológicos.",
+      description: "Especialización en desarrollo frontend y diseño de interfaces de usuario. Creación de experiencias visuales atractivas combinando programación con diseño gráfico y branding.",
       icon: "🎨",
+      borderGradient: "from-oatmilk-300 via-oatmilk-400 to-oatmilk-500",
+      iconBg: "bg-gradient-to-br from-oatmilk-300 to-oatmilk-400",
       skills: ["UI/UX", "Diseño", "Frontend"]
     }
   ];
 
   return (
-    // Sección principal con ID para navegación y gradiente de fondo claro
-    <section id="experience" className="py-20 bg-gradient-to-b from-oatmilk-50 to-white relative overflow-hidden">
-      {/* Efectos de fondo decorativos */}
-      <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-oatmilk-200/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-oatmilk-300/20 rounded-full blur-3xl"></div>
+    // Sección principal con fondo limpio
+    <section id="experience" className="py-20 bg-gradient-to-b from-white to-oatmilk-50 relative overflow-hidden">
+      {/* Efectos de fondo sutiles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-oatmilk-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-oatmilk-300/15 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Contenedor principal con ancho máximo y centrado */}
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header de la sección */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-oatmilk-900 to-oatmilk-700 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 text-oatmilk-900">
             Experiencia Laboral
           </h2>
           <p className="text-oatmilk-600 text-lg max-w-2xl mx-auto">
@@ -60,47 +64,49 @@ const Experience = () => {
           </p>
         </div>
         
-        {/* Grid responsive mejorado */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Mapeo de cada experiencia para crear tarjetas individuales */}
+        {/* Grid de experiencias */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="group relative bg-white/70 backdrop-blur-sm border border-oatmilk-200/50 p-8 rounded-3xl hover:bg-white/90 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-oatmilk-400/15"
+              className="group relative bg-white/90 backdrop-blur-sm border border-oatmilk-200/50 rounded-2xl p-8 hover:bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-oatmilk-400/20 overflow-hidden"
             >
-              {/* Borde animado */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-oatmilk-400/20 via-oatmilk-300/20 to-oatmilk-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-              <div className="absolute inset-[1px] rounded-3xl bg-white/90 group-hover:bg-white/95 transition-colors duration-500"></div>
+              {/* Borde inferior brillante */}
+              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${exp.borderGradient} opacity-60 group-hover:opacity-100 group-hover:h-2 transition-all duration-300`}></div>
               
-              {/* Contenido de la tarjeta */}
-              <div className="relative z-10">
-                {/* Icono y badge de institución */}
-                <div className="flex justify-between items-start mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-oatmilk-400 to-oatmilk-500 rounded-2xl flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    {exp.icon}
-                  </div>
-                  <span className="bg-gradient-to-r from-oatmilk-400 to-oatmilk-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">
-                    {exp.institution}
-                  </span>
+              {/* Badge de institución */}
+              <div className="absolute top-4 right-4">
+                <span className="bg-oatmilk-100 text-oatmilk-700 px-3 py-1 rounded-full text-xs font-semibold border border-oatmilk-200">
+                  {exp.institution}
+                </span>
+              </div>
+              
+              {/* Icono principal centrado */}
+              <div className="flex justify-center mb-6">
+                <div className={`w-20 h-20 ${exp.iconBg} rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                  {exp.icon}
                 </div>
-                
-                {/* Título del puesto */}
-                <h3 className="text-xl font-bold text-oatmilk-900 mb-2 group-hover:text-black transition-colors duration-300">
+              </div>
+              
+              {/* Contenido centrado */}
+              <div className="text-center space-y-4">
+                {/* Título */}
+                <h3 className="text-2xl font-bold text-oatmilk-900 group-hover:text-oatmilk-950 transition-colors duration-300">
                   {exp.title}
                 </h3>
                 
-                {/* Subtítulo con el programa */}
-                <h4 className="text-oatmilk-600 font-semibold mb-4">
+                {/* Subtítulo */}
+                <h4 className="text-oatmilk-600 font-semibold">
                   {exp.company}
                 </h4>
                 
                 {/* Descripción */}
-                <p className="text-oatmilk-700 leading-relaxed mb-6 text-sm">
+                <p className="text-oatmilk-600 leading-relaxed group-hover:text-oatmilk-700 transition-colors duration-300">
                   {exp.description}
                 </p>
                 
                 {/* Skills tags */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 justify-center pt-4">
                   {exp.skills.map((skill, skillIndex) => (
                     <span 
                       key={skillIndex}
@@ -111,8 +117,24 @@ const Experience = () => {
                   ))}
                 </div>
               </div>
+              
+              {/* Efecto de brillo sutil */}
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-t ${exp.borderGradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}></div>
             </div>
           ))}
+        </div>
+        
+        {/* Información adicional */}
+        <div className="text-center mt-16">
+          <div className="inline-flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 border border-oatmilk-200/50 shadow-lg">
+            <span className="text-oatmilk-700 text-sm font-medium">
+              💼 Cristian Contreras
+            </span>
+            <div className="w-1 h-1 bg-oatmilk-400 rounded-full"></div>
+            <span className="text-oatmilk-600 text-sm">
+              Tecnólogo ADSO - SENA
+            </span>
+          </div>
         </div>
       </div>
     </section>
