@@ -12,6 +12,15 @@ import React from 'react';
 const Certificates = () => {
   const certificates = [
     {
+      title: "Aprendiz Digital",
+      institution: "SENA",
+      description: "Certificación en competencias digitales y tecnológicas para el desarrollo profesional en la era digital.",
+      link: "/Certificados/Aprendiz Digital.pdf",
+      icon: "💡",
+      iconBg: "bg-gradient-to-br from-oatmilk-300 to-oatmilk-400",
+      category: "Competencias Digitales"
+    },
+    {
       title: "Certificado Diplomado",
       institution: "SENA",
       description: "Diplomado especializado del SENA en desarrollo de competencias técnicas y profesionales avanzadas.",
