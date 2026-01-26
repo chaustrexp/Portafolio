@@ -1,12 +1,78 @@
 /* ===================================
-   CERTIFICATES COMPONENT STYLES
+   CERTIFICATES COMPONENT STYLES - TEMA OSCURO
    =================================== */
+
+/* Variables CSS para tema */
+:root {
+  /* Tema Claro - Paleta Elegant */
+  --certificates-bg: linear-gradient(180deg, #F5F5F5 0%, #FFFFFF 100%); /* Elegant-100 a 50 */
+  --certificates-bg-effect: rgba(245, 245, 245, 0.12); /* Elegant-100 */
+  --certificates-title-color: #424242; /* Elegant-700 */
+  --certificates-title-underline: #424242; /* Elegant-700 */
+  --certificates-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(245, 245, 245, 0.9)); /* Elegant-50 a 100 */
+  --certificates-card-border: rgba(66, 66, 66, 0.1); /* Elegant-700 */
+  --certificates-card-shadow: rgba(112, 112, 112, 0.1); /* Elegant-600 */
+  --certificates-card-hover-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.98)); /* Elegant-50 a 100 */
+  --certificates-card-hover-border: rgba(66, 66, 66, 0.3); /* Elegant-700 */
+  --certificates-card-hover-shadow: rgba(112, 112, 112, 0.2); /* Elegant-600 */
+  --certificates-card-top-bar: linear-gradient(90deg, #F5F5F5, #E0E0E0, #FFFFFF); /* Elegant-100, 200, 50 */
+  --certificates-card-glow: rgba(245, 245, 245, 0.15); /* Elegant-100 */
+  --certificates-icon-shadow: rgba(245, 245, 245, 0.5); /* Elegant-100 */
+  --certificates-title-card: #424242; /* Elegant-700 */
+  --certificates-institution: #424242; /* Elegant-700 */
+  --certificates-institution-hover: #707070; /* Elegant-600 */
+  --certificates-description: #8C8C8C; /* Elegant-500 */
+  --certificates-description-hover: #707070; /* Elegant-600 */
+  --certificates-button-bg: linear-gradient(135deg, #F5F5F5, #E0E0E0); /* Elegant-100 a 200 */
+  --certificates-button-color: #707070; /* Elegant-600 */
+  --certificates-button-border: rgba(112, 112, 112, 0.1); /* Elegant-600 */
+  --certificates-button-shadow: rgba(245, 245, 245, 0.4); /* Elegant-100 */
+  --certificates-button-hover-bg: linear-gradient(135deg, #E0E0E0, #C0C0C0); /* Elegant-200 a 300 */
+  --certificates-button-hover-border: rgba(112, 112, 112, 0.2); /* Elegant-600 */
+  --certificates-button-hover-shadow: rgba(245, 245, 245, 0.6); /* Elegant-100 */
+  --certificates-button-shine: rgba(255, 255, 255, 0.3); /* Blanco */
+}
+
+/* Tema Oscuro - Paleta Simple y Profesional Optimizada */
+[data-theme="dark"] {
+  --certificates-bg: linear-gradient(180deg, #1E293B 0%, #0F172A 100%); /* Cards a fondo más oscuro */
+  --certificates-bg-effect: rgba(203, 213, 225, 0.12); /* Texto secundario bien visible */
+  --certificates-title-color: #F8FAFC; /* Títulos más brillantes */
+  --certificates-title-underline: #F8FAFC; /* Títulos más brillantes */
+  --certificates-card-bg: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.9)); /* Fondo más oscuro a cards */
+  --certificates-card-border: rgba(248, 250, 252, 0.1); /* Títulos con transparencia */
+  --certificates-card-shadow: rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+  --certificates-card-hover-bg: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(51, 65, 85, 0.98)); /* Cards a bordes */
+  --certificates-card-hover-border: rgba(248, 250, 252, 0.3); /* Títulos con transparencia */
+  --certificates-card-hover-shadow: rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+  --certificates-card-top-bar: linear-gradient(90deg, #CBD5E1, #E2E8F0, #F8FAFC); /* Texto secundario a títulos */
+  --certificates-card-glow: rgba(203, 213, 225, 0.15); /* Texto secundario bien visible */
+  --certificates-icon-shadow: rgba(203, 213, 225, 0.5); /* Texto secundario bien visible */
+  --certificates-title-card: #F8FAFC; /* Títulos más brillantes */
+  --certificates-institution: #F8FAFC; /* Títulos más brillantes */
+  --certificates-institution-hover: #E2E8F0; /* Acentos principales claros */
+  --certificates-description: #CBD5E1; /* Texto secundario bien visible */
+  --certificates-description-hover: #E2E8F0; /* Acentos principales claros */
+  --certificates-button-bg: linear-gradient(135deg, #334155, #94A3B8); /* Bordes a texto tenue */
+  --certificates-button-color: #F8FAFC; /* Títulos más brillantes */
+  --certificates-button-border: rgba(203, 213, 225, 0.1); /* Texto secundario con transparencia */
+  --certificates-button-shadow: rgba(203, 213, 225, 0.4); /* Texto secundario bien visible */
+  --certificates-button-hover-bg: linear-gradient(135deg, #94A3B8, #CBD5E1); /* Texto tenue a texto secundario */
+  --certificates-button-hover-border: rgba(203, 213, 225, 0.2); /* Texto secundario con transparencia */
+  --certificates-button-hover-shadow: rgba(203, 213, 225, 0.6); /* Texto secundario bien visible */
+  --certificates-button-shine: rgba(255, 255, 255, 0.2); /* Blanco más sutil */
+}
+  --certificates-button-hover-border: rgba(192, 192, 192, 0.2); /* Elegant-300 */
+  --certificates-button-hover-shadow: rgba(192, 192, 192, 0.6); /* Elegant-300 */
+  --certificates-button-shine: rgba(255, 255, 255, 0.2); /* Blanco más sutil */
+}
 
 .certificates-section {
   padding: 5rem 0;
-  background: linear-gradient(180deg, #F5F0E8 0%, #F8F4EF 100%);
+  background: var(--certificates-bg);
   position: relative;
   overflow: hidden;
+  transition: background 0.3s ease;
 }
 
 /* Efecto de fondo */
@@ -16,7 +82,7 @@
   right: -50%;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(245, 240, 232, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--certificates-bg-effect) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -33,10 +99,11 @@
   font-weight: 800;
   text-align: center;
   margin-bottom: 4rem;
-  color: #000000;
+  color: var(--certificates-title-color);
   position: relative;
   padding-bottom: 1rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
 }
 
 .certificates-title::after {
@@ -47,9 +114,10 @@
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background: #000000;
+  background: var(--certificates-title-underline);
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
 }
 
 /* Grid de certificados */
@@ -61,14 +129,14 @@
 
 /* Tarjeta de certificado */
 .certificate-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(248, 244, 239, 0.9));
+  background: var(--certificates-card-bg);
   padding: 2rem;
   border-radius: 24px;
   text-align: center;
-  box-shadow: 0 10px 40px rgba(61, 58, 57, 0.1),
+  box-shadow: 0 10px 40px var(--certificates-card-shadow),
               inset 0 1px 0 rgba(255, 255, 255, 0.9);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 2px solid rgba(61, 58, 57, 0.1);
+  border: 2px solid var(--certificates-card-border);
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(15px);
@@ -82,11 +150,11 @@
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(90deg, #F8F4EF, #F0E6D9, #F5F0E8);
+  background: var(--certificates-card-top-bar);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
-  box-shadow: 0 0 20px rgba(245, 240, 232, 0.6);
+  box-shadow: 0 0 20px var(--certificates-icon-shadow);
 }
 
 .certificate-card:hover::before {
@@ -101,7 +169,7 @@
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(245, 240, 232, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--certificates-card-glow) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -112,11 +180,11 @@
 
 .certificate-card:hover {
   transform: translateY(-15px) scale(1.05);
-  box-shadow: 0 30px 80px rgba(61, 58, 57, 0.2), 
-              0 0 60px rgba(61, 58, 57, 0.15),
-              0 0 40px rgba(248, 244, 239, 0.4);
-  border-color: rgba(61, 58, 57, 0.3);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 240, 232, 0.98));
+  box-shadow: 0 30px 80px var(--certificates-card-hover-shadow), 
+              0 0 60px var(--certificates-card-hover-shadow),
+              0 0 40px var(--certificates-icon-shadow);
+  border-color: var(--certificates-card-hover-border);
+  background: var(--certificates-card-hover-bg);
 }
 
 /* Contenido de la tarjeta */
@@ -130,19 +198,19 @@
   font-size: 5rem;
   margin-bottom: 1.5rem;
   display: inline-block;
-  filter: drop-shadow(0 8px 15px rgba(245, 240, 232, 0.5));
+  filter: drop-shadow(0 8px 15px var(--certificates-icon-shadow));
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   line-height: 1;
 }
 
 .certificate-card:hover .certificate-icon {
   transform: scale(1.25) rotate(-5deg) translateY(-8px);
-  filter: drop-shadow(0 15px 30px rgba(245, 240, 232, 0.7));
+  filter: drop-shadow(0 15px 30px var(--certificates-icon-shadow));
 }
 
 /* Título del certificado */
 .certificate-title {
-  color: #000000;
+  color: var(--certificates-title-card);
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -151,12 +219,12 @@
 }
 
 .certificate-card:hover .certificate-title {
-  color: #000000;
+  color: var(--certificates-title-card);
 }
 
 /* Institución */
 .certificate-institution {
-  color: #000000;
+  color: var(--certificates-institution);
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -164,12 +232,12 @@
 }
 
 .certificate-card:hover .certificate-institution {
-  color: #3D3A39;
+  color: var(--certificates-institution-hover);
 }
 
 /* Descripción */
 .certificate-description {
-  color: #5A5755;
+  color: var(--certificates-description);
   font-size: 0.95rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
@@ -180,26 +248,26 @@
 }
 
 .certificate-card:hover .certificate-description {
-  color: #3D3A39;
+  color: var(--certificates-description-hover);
 }
 
 /* Botón del certificado */
 .certificate-button {
   display: inline-block;
-  background: linear-gradient(135deg, #F8F4EF, #F0E6D9);
-  color: #3D3A39;
+  background: var(--certificates-button-bg);
+  color: var(--certificates-button-color);
   text-decoration: none;
   padding: 10px 24px;
   border-radius: 12px;
   font-size: 0.9rem;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(245, 240, 232, 0.4);
+  box-shadow: 0 4px 15px var(--certificates-button-shadow);
   letter-spacing: 0.3px;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(61, 58, 57, 0.1);
+  border: 1px solid var(--certificates-button-border);
 }
 
 .certificate-button::before {
@@ -209,7 +277,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, var(--certificates-button-shine), transparent);
   transition: left 0.5s ease;
 }
 
@@ -219,13 +287,13 @@
 
 .certificate-button:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 30px rgba(245, 240, 232, 0.6);
-  background: linear-gradient(135deg, #F0E6D9, #EDE3D6);
-  border-color: rgba(61, 58, 57, 0.2);
+  box-shadow: 0 8px 30px var(--certificates-button-hover-shadow);
+  background: var(--certificates-button-hover-bg);
+  border-color: var(--certificates-button-hover-border);
 }
 
 .certificate-card:hover .certificate-button {
-  box-shadow: 0 6px 25px rgba(245, 240, 232, 0.7);
+  box-shadow: 0 6px 25px var(--certificates-button-hover-shadow);
 }
 
 /* Animaciones de entrada */

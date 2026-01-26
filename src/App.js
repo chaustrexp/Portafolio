@@ -1,79 +1,70 @@
 import React, { useState, useEffect } from 'react';
-// Importación de todos los componentes del portafolio
+// Importación de componentes principales del portafolio
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Experience from './components/Experience';
+import About from './components/About';
 import Skills from './components/Skills';
-import Certificates from './components/Certificates';
-import Hobbies from './components/Hobbies';
 import Projects from './components/Projects';
+import Hobbies from './components/Hobbies';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 /**
  * Componente principal de la aplicación - App
  * 
- * Este es el componente raíz que orquesta toda la aplicación del portafolio.
- * Maneja el estado de carga inicial y renderiza todos los componentes en orden.
+ * Estructura profesional del portafolio ADSO:
+ * Hero → About → Skills → Projects → Hobbies → Contact
  * 
- * Características:
- * - Pantalla de carga inicial con temporizador
- * - Renderizado condicional basado en el estado de carga
- * - Estructura de página única (SPA) con todas las secciones
- * - Orden lógico de componentes para una experiencia de usuario fluida
+ * Enfoque profesional con secciones esenciales
+ * para una experiencia de usuario completa y personal.
  * 
  * @component
  * @returns {JSX.Element} Aplicación completa del portafolio
  */
 function App() {
-  // Estado para controlar si la aplicación está en proceso de carga inicial
+  // Estado para controlar la carga inicial
   const [loading, setLoading] = useState(true);
 
-  // Efecto para simular tiempo de carga y mostrar el loader épico
+  // Efecto para simular tiempo de carga
   useEffect(() => {
-    // Temporizador que simula la carga de recursos y datos
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500); // 2.5 segundos de pantalla de carga
+    }, 2500);
 
-    // Cleanup function para limpiar el temporizador si el componente se desmonta
     return () => clearTimeout(timer);
-  }, []); // Array de dependencias vacío = solo se ejecuta una vez al montar
+  }, []);
 
-  // Renderizado condicional: muestra loader o contenido principal
+  // Renderizado condicional: loader o contenido principal
   if (loading) {
     return <Loader />;
   }
 
-  // Renderizado del contenido principal del portafolio
+  // Estructura profesional del portafolio
   return (
     <div className="App">
-      {/* Barra de navegación fija en la parte superior */}
+      {/* Navegación */}
       <Navbar />
       
-      {/* Sección principal de presentación personal */}
+      {/* Sección principal de presentación */}
       <Hero />
       
-      {/* Sección de experiencia laboral y formación */}
-      <Experience />
+      {/* Sección sobre mí (breve y personal) */}
+      <About />
       
-      {/* Sección de habilidades técnicas y profesionales */}
+      {/* Habilidades técnicas organizadas */}
       <Skills />
       
-      {/* Sección de certificados y logros académicos */}
-      <Certificates />
-      
-      {/* Sección de hobbies e intereses personales */}
-      <Hobbies />
-      
-      {/* Sección de proyectos destacados */}
+      {/* Proyectos destacados (máximo 3) */}
       <Projects />
       
-      {/* Sección de contacto con formulario y redes sociales */}
+      {/* Intereses y pasatiempos personales */}
+      <Hobbies />
+      
+      {/* Contacto profesional */}
       <Contact />
       
-      {/* Pie de página con información de copyright */}
+      {/* Pie de página */}
       <Footer />
     </div>
   );

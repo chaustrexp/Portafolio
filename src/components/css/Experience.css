@@ -1,11 +1,53 @@
 /* ===================================
-   EXPERIENCE COMPONENT STYLES
+   EXPERIENCE COMPONENT STYLES - TEMA OSCURO
    =================================== */
+
+/* Variables CSS para tema */
+:root {
+  /* Tema Claro - Paleta Elegant */
+  --experience-bg: linear-gradient(180deg, #F5F5F5 0%, #FFFFFF 100%); /* Elegant-100 a 50 */
+  --experience-title-color: #424242; /* Elegant-700 */
+  --experience-title-underline: #424242; /* Elegant-700 */
+  --experience-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.95)); /* Elegant-50 a 100 */
+  --experience-card-border: rgba(66, 66, 66, 0.1); /* Elegant-700 */
+  --experience-card-shadow: rgba(66, 66, 66, 0.15); /* Elegant-700 */
+  --experience-card-hover-border: rgba(66, 66, 66, 0.3); /* Elegant-700 */
+  --experience-card-hover-shadow: rgba(66, 66, 66, 0.25); /* Elegant-700 */
+  --experience-job-title: #424242; /* Elegant-700 */
+  --experience-company: #424242; /* Elegant-700 */
+  --experience-description: #707070; /* Elegant-600 */
+  --experience-institution-bg: linear-gradient(135deg, #F5F5F5, #E0E0E0); /* Elegant-100 a 200 */
+  --experience-institution-color: #424242; /* Elegant-700 */
+  --experience-institution-shadow: rgba(66, 66, 66, 0.2); /* Elegant-700 */
+  --experience-card-glow: linear-gradient(45deg, #F5F5F5, #FFFFFF, #E0E0E0, #F5F5F5); /* Elegant-100, 50, 200, 100 */
+  --experience-card-overlay: linear-gradient(135deg, rgba(66, 66, 66, 0.05), rgba(224, 224, 224, 0.2)); /* Elegant-700 y 200 */
+}
+
+/* Tema Oscuro - Paleta Simple y Profesional Optimizada */
+[data-theme="dark"] {
+  --experience-bg: linear-gradient(180deg, #1E293B 0%, #0F172A 100%); /* Cards a fondo más oscuro */
+  --experience-title-color: #F8FAFC; /* Títulos más brillantes */
+  --experience-title-underline: #F8FAFC; /* Títulos más brillantes */
+  --experience-card-bg: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.95)); /* Fondo más oscuro a cards */
+  --experience-card-border: rgba(248, 250, 252, 0.1); /* Títulos con transparencia */
+  --experience-card-shadow: rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+  --experience-card-hover-border: rgba(248, 250, 252, 0.3); /* Títulos con transparencia */
+  --experience-card-hover-shadow: rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+  --experience-job-title: #F8FAFC; /* Títulos más brillantes */
+  --experience-company: #F8FAFC; /* Títulos más brillantes */
+  --experience-description: #CBD5E1; /* Texto secundario bien visible */
+  --experience-institution-bg: linear-gradient(135deg, #334155, #94A3B8); /* Bordes a texto tenue */
+  --experience-institution-color: #F8FAFC; /* Títulos más brillantes */
+  --experience-institution-shadow: rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+  --experience-card-glow: linear-gradient(45deg, #334155, #94A3B8, #CBD5E1, #334155); /* Gradiente de bordes a texto */
+  --experience-card-overlay: linear-gradient(135deg, rgba(248, 250, 252, 0.05), rgba(203, 213, 225, 0.1)); /* Títulos y texto secundario con transparencia */
+}
 
 .experience-section {
   padding: 5rem 0;
-  background: linear-gradient(180deg, #F5F0E8 0%, #F8F4EF 100%);
+  background: var(--experience-bg);
   position: relative;
+  transition: background 0.3s ease;
 }
 
 .experience-container {
@@ -19,10 +61,11 @@
   font-weight: 800;
   text-align: center;
   margin-bottom: 4rem;
-  color: #000000;
+  color: var(--experience-title-color);
   position: relative;
   padding-bottom: 1rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
 }
 
 .experience-title::after {
@@ -33,9 +76,10 @@
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background: #000000;
+  background: var(--experience-title-underline);
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
 }
 
 /* Grid de experiencias */
@@ -47,12 +91,12 @@
 
 /* Tarjeta de experiencia */
 .experience-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 244, 239, 0.95));
+  background: var(--experience-card-bg);
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(38, 36, 36, 0.15);
+  box-shadow: 0 8px 32px var(--experience-card-shadow);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 2px solid rgba(38, 36, 36, 0.1);
+  border: 2px solid var(--experience-card-border);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
@@ -66,7 +110,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(38, 36, 36, 0.05), rgba(232, 221, 208, 0.2));
+  background: var(--experience-card-overlay);
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 1;
@@ -78,8 +122,8 @@
 
 .experience-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(38, 36, 36, 0.25);
-  border-color: rgba(38, 36, 36, 0.3);
+  box-shadow: 0 20px 60px var(--experience-card-hover-shadow);
+  border-color: var(--experience-card-hover-border);
 }
 
 /* Contenido de la tarjeta */
@@ -98,45 +142,48 @@
 }
 
 .experience-job-title {
-  color: #3D3A39;
+  color: var(--experience-job-title);
   font-size: 1.3rem;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(248, 244, 239, 0.3);
   margin: 0;
   line-height: 1.3;
+  transition: color 0.3s ease;
 }
 
 .experience-institution {
-  background: linear-gradient(135deg, #F8F4EF, #F0E6D9);
-  color: #000000;
+  background: var(--experience-institution-bg);
+  color: var(--experience-institution-color);
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
-  box-shadow: 0 2px 10px rgba(38, 36, 36, 0.2);
+  box-shadow: 0 2px 10px var(--experience-institution-shadow);
   white-space: nowrap;
   transition: all 0.3s ease;
 }
 
 .experience-card:hover .experience-institution {
   transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(38, 36, 36, 0.3);
+  box-shadow: 0 4px 15px var(--experience-institution-shadow);
 }
 
 .experience-company {
-  color: #000000;
+  color: var(--experience-company);
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 1rem 0;
+  transition: color 0.3s ease;
 }
 
 .experience-description {
-  color: #5A5755;
+  color: var(--experience-description);
   line-height: 1.7;
   font-size: 0.95rem;
   margin: 0;
   text-align: justify;
   hyphens: auto;
+  transition: color 0.3s ease;
 }
 
 /* Efectos adicionales */
@@ -147,7 +194,7 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, #F8F4EF, #F5F0E8, #F0E6D9, #F8F4EF);
+  background: var(--experience-card-glow);
   border-radius: 22px;
   z-index: -1;
   opacity: 0;

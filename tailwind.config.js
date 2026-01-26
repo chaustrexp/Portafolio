@@ -29,25 +29,47 @@ module.exports = {
       '2xl': '1536px', // Pantallas grandes
     },
     extend: {
-      // Sistema de colores personalizado "oatmilk"
-      // Paleta de 10 tonos del blanco al negro para máxima flexibilidad
+      // Sistema de colores "Elegant" - Paleta profesional de Cristian Contreras
+      // Paleta principal - Grises profesionales y elegantes
       colors: {
-        'oatmilk': {
-          50: '#FFFFFF',   // Blanco puro - texto principal
-          100: '#F5F5F5',  // Gris muy claro - texto secundario
-          200: '#E5E5E5',  // Gris claro - bordes sutiles
-          300: '#CCCCCC',  // Gris medio - elementos deshabilitados
-          400: '#999999',  // Gris - texto terciario
-          500: '#666666',  // Gris oscuro - elementos secundarios
-          600: '#333333',  // Gris muy oscuro - cards elevadas
-          700: '#1A1A1A',  // Negro grisáceo - cards principales
-          800: '#0D0D0D',  // Negro profundo - elementos secundarios
-          900: '#000000',  // Negro absoluto - fondo principal
+        'elegant': {
+          50: '#FFFFFF',   // Blanco Puro - Fondos principales
+          100: '#F5F5F5',  // Gris muy claro - Fondos secundarios
+          200: '#E0E0E0',  // Gris claro intermedio - Bordes suaves
+          300: '#C0C0C0',  // Gris Claro - Elementos deshabilitados
+          400: '#A0A0A0',  // Gris intermedio - Texto secundario
+          500: '#8C8C8C',  // Gris Medio - Iconos y detalles
+          600: '#707070',  // Gris medio-oscuro - Texto principal
+          700: '#424242',  // Gris Carbón - Títulos importantes
+          800: '#2A2A2A',  // Gris muy oscuro - Texto destacado
+          900: '#000000',  // Negro Intenso - Máximo contraste
+        },
+        // Paleta secundaria - Azules Slate para acentos
+        'primary': {
+          50: '#f8fafc',   // Fondos muy claros
+          100: '#f1f5f9',  // Fondos claros
+          200: '#e2e8f0',  // Bordes suaves
+          300: '#cbd5e1',  // Elementos deshabilitados
+          400: '#94a3b8',  // Texto secundario
+          500: '#64748b',  // Color base
+          600: '#475569',  // Hover states
+          700: '#334155',  // Elementos activos
+          800: '#1e293b',  // Texto oscuro
+          900: '#0f172a',  // Máximo contraste
+        },
+        // Colores de apoyo
+        'secondary': {
+          500: '#6b7280', // Texto neutro
+          600: '#4b5563', // Texto más oscuro
+        },
+        'accent': {
+          500: '#374151', // Acentos especiales
         }
       },
-      // Tipografía personalizada
+      // Tipografía profesional
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
+        'inter': ['Inter', 'system-ui', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
       },
       // Animaciones personalizadas para efectos visuales avanzados
       animation: {

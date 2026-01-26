@@ -1,6 +1,300 @@
 /* ===================================
-   LOADER COMPONENT STYLES - VERSIÓN MODERNA
+   LOADER COMPONENT STYLES - TEMA ADAPTATIVO
    =================================== */
+
+/* Variables CSS para tema */
+:root {
+  /* Tema Claro - Paleta Simple y Profesional */
+  --loader-bg: linear-gradient(135deg, #FFFFFF 0%, #F3F4F6 50%, #FFFFFF 100%);
+  --loader-circle-1: rgba(229, 231, 235, 0.3); /* Bordes con transparencia */
+  --loader-circle-2: rgba(107, 114, 128, 0.2); /* Texto tenue con transparencia */
+  --loader-circle-3: rgba(55, 65, 81, 0.2); /* Texto secundario con transparencia */
+  --loader-particle: #6B7280; /* Texto tenue */
+  --loader-logo-glow: rgba(55, 65, 81, 0.2); /* Texto secundario con transparencia */
+  --loader-logo-bg: linear-gradient(135deg, #F3F4F6, #E5E7EB); /* Cards a bordes */
+  --loader-logo-border: rgba(107, 114, 128, 0.3); /* Texto tenue con transparencia */
+  --loader-initials: linear-gradient(135deg, #000000, #111827); /* Títulos a texto principal */
+  --loader-ring-outer: rgba(107, 114, 128, 0.3); /* Texto tenue con transparencia */
+  --loader-ring-inner: rgba(229, 231, 235, 0.2); /* Bordes con transparencia */
+  --loader-name: #000000; /* Títulos */
+  --loader-title: #6B7280; /* Texto tenue */
+  --loader-progress-track: #E5E7EB; /* Bordes */
+  --loader-progress-bar: linear-gradient(90deg, #111827, #374151); /* Texto principal a texto secundario */
+  --loader-status: #6B7280; /* Texto tenue */
+  --loader-dot: #111827; /* Texto principal */
+  --loader-corner-glow-1: rgba(107, 114, 128, 0.1); /* Texto tenue con transparencia */
+  --loader-corner-glow-2: rgba(229, 231, 235, 0.1); /* Bordes con transparencia */
+}
+
+/* Tema Oscuro - Paleta Simple y Profesional Optimizada */
+[data-theme="dark"] {
+  --loader-bg: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  --loader-circle-1: rgba(51, 65, 85, 0.3); /* Bordes oscuros con transparencia */
+  --loader-circle-2: rgba(148, 163, 184, 0.2); /* Texto tenue claro con transparencia */
+  --loader-circle-3: rgba(203, 213, 225, 0.2); /* Texto secundario claro con transparencia */
+  --loader-particle: #94A3B8; /* Texto tenue claro */
+  --loader-logo-glow: rgba(203, 213, 225, 0.2); /* Texto secundario claro con transparencia */
+  --loader-logo-bg: linear-gradient(135deg, #1E293B, #334155); /* Cards oscuras a bordes oscuros */
+  --loader-logo-border: rgba(148, 163, 184, 0.3); /* Texto tenue claro con transparencia */
+  --loader-initials: linear-gradient(135deg, #F8FAFC, #E2E8F0); /* Títulos claros a acentos claros */
+  --loader-ring-outer: rgba(148, 163, 184, 0.3); /* Texto tenue claro con transparencia */
+  --loader-ring-inner: rgba(51, 65, 85, 0.2); /* Bordes oscuros con transparencia */
+  --loader-name: #F8FAFC; /* Títulos claros */
+  --loader-title: #94A3B8; /* Texto tenue claro */
+  --loader-progress-track: #334155; /* Bordes oscuros */
+  --loader-progress-bar: linear-gradient(90deg, #E2E8F0, #CBD5E1); /* Acentos claros a texto secundario claro */
+  --loader-status: #94A3B8; /* Texto tenue claro */
+  --loader-dot: #E2E8F0; /* Acentos claros */
+  --loader-corner-glow-1: rgba(148, 163, 184, 0.1); /* Texto tenue claro con transparencia */
+  --loader-corner-glow-2: rgba(51, 65, 85, 0.1); /* Bordes oscuros con transparencia */
+}
+
+/* Contenedor principal del loader */
+.loader-container {
+  position: fixed;
+  inset: 0;
+  background: var(--loader-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Fondo con efectos */
+.loader-background {
+  position: absolute;
+  inset: 0;
+}
+
+/* Círculos decorativos flotantes */
+.loader-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.loader-circle-1 {
+  top: 25%;
+  left: 25%;
+  width: 8rem;
+  height: 8rem;
+  background: var(--loader-circle-1);
+}
+
+.loader-circle-2 {
+  bottom: 33%;
+  right: 25%;
+  width: 12rem;
+  height: 12rem;
+  background: var(--loader-circle-2);
+  animation-delay: 1s;
+}
+
+.loader-circle-3 {
+  top: 50%;
+  right: 33%;
+  width: 6rem;
+  height: 6rem;
+  background: var(--loader-circle-3);
+  animation-delay: 2s;
+}
+
+/* Partículas flotantes */
+.loader-particle {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--loader-particle);
+  border-radius: 50%;
+  opacity: 0;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Contenido principal */
+.loader-content {
+  position: relative;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Contenedor del logo */
+.loader-logo-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+/* Resplandor del logo */
+.loader-logo-glow {
+  position: absolute;
+  inset: 0;
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto;
+  background: var(--loader-logo-glow);
+  border-radius: 50%;
+  filter: blur(20px);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Logo principal */
+.loader-logo {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto;
+  background: var(--loader-logo-bg);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--loader-logo-border);
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+/* Iniciales */
+.loader-initials {
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--loader-initials);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Anillos decorativos */
+.loader-ring {
+  position: absolute;
+  border-radius: 1rem;
+  border-style: solid;
+}
+
+.loader-ring-outer {
+  inset: 0;
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto;
+  border-width: 2px;
+  border-color: var(--loader-ring-outer);
+  animation: spin-slow 8s linear infinite;
+}
+
+.loader-ring-inner {
+  inset: 0.5rem;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 auto;
+  border-width: 1px;
+  border-color: var(--loader-ring-inner);
+  border-radius: 0.75rem;
+  animation: spin-reverse 6s linear infinite;
+}
+
+/* Contenedor de texto */
+.loader-text-container {
+  margin-bottom: 2rem;
+}
+
+/* Nombre */
+.loader-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--loader-name);
+  margin-bottom: 0.5rem;
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Título */
+.loader-title {
+  font-size: 1.125rem;
+  color: var(--loader-title);
+  animation: fade-in-up 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Contenedor de progreso */
+.loader-progress-container {
+  width: 16rem;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* Track de progreso */
+.loader-progress-track {
+  height: 0.25rem;
+  background: var(--loader-progress-track);
+  border-radius: 9999px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+/* Barra de progreso */
+.loader-progress-bar {
+  height: 100%;
+  background: var(--loader-progress-bar);
+  border-radius: 9999px;
+  animation: loading-bar 2s ease-in-out infinite;
+}
+
+/* Estado de carga */
+.loader-status {
+  color: var(--loader-status);
+  font-size: 0.875rem;
+  animation: pulse 2s ease-in-out infinite;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Contenedor de puntos */
+.loader-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Puntos de carga */
+.loader-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--loader-dot);
+  border-radius: 50%;
+  animation: bounce 1s ease-in-out infinite;
+  transition: background-color 0.3s ease;
+}
+
+/* Resplandor en esquinas */
+.loader-corner-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.loader-corner-glow-top {
+  top: 0;
+  left: 0;
+  width: 8rem;
+  height: 8rem;
+  background: var(--loader-corner-glow-1);
+}
+
+.loader-corner-glow-bottom {
+  bottom: 0;
+  right: 0;
+  width: 10rem;
+  height: 10rem;
+  background: var(--loader-corner-glow-2);
+}
 
 /* Animaciones personalizadas para el loader moderno */
 @keyframes float {
@@ -62,77 +356,91 @@
   }
 }
 
-/* Clases de utilidad para las animaciones */
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-.animate-bounce-gentle {
-  animation: bounce-gentle 2s ease-in-out infinite;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
-}
-
-.animate-spin-reverse {
-  animation: spin-reverse 6s linear infinite;
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-.animate-loading-bar {
-  animation: loading-bar 2s ease-in-out infinite;
-}
-
-/* Efectos de resplandor y sombras */
-.shadow-glow {
-  box-shadow: 0 0 20px rgba(139, 125, 107, 0.4);
-}
-
-.text-shadow-soft {
-  text-shadow: 0 2px 4px rgba(139, 125, 107, 0.3);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .animate-float {
-    animation-duration: 3s;
-  }
-  
-  .animate-bounce-gentle {
-    animation-duration: 1.5s;
-  }
-}
-
-/* Efectos adicionales para mejor UX */
-@keyframes pulse-soft {
+@keyframes pulse {
   0%, 100% { 
     opacity: 0.6; 
     transform: scale(1);
   }
   50% { 
     opacity: 1; 
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
 
-.animate-pulse-soft {
-  animation: pulse-soft 2s ease-in-out infinite;
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40%, 43% {
+    transform: translateY(-8px);
+  }
+  70% {
+    transform: translateY(-4px);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
 }
 
-/* Transiciones suaves para el loader */
-.loader-transition {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .loader-logo {
+    width: 6rem;
+    height: 6rem;
+  }
+  
+  .loader-ring-outer {
+    width: 6rem;
+    height: 6rem;
+  }
+  
+  .loader-ring-inner {
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .loader-initials {
+    font-size: 2.5rem;
+  }
+  
+  .loader-name {
+    font-size: 1.75rem;
+  }
+  
+  .loader-title {
+    font-size: 1rem;
+  }
+  
+  .loader-progress-container {
+    width: 12rem;
+  }
 }
 
-/* Efectos de partículas mejorados */
-.particle-glow {
-  box-shadow: 
-    0 0 6px rgba(139, 125, 107, 0.6),
-    0 0 12px rgba(139, 125, 107, 0.4),
-    0 0 18px rgba(139, 125, 107, 0.2);
+@media (max-width: 480px) {
+  .loader-logo {
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .loader-ring-outer {
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .loader-ring-inner {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .loader-initials {
+    font-size: 2rem;
+  }
+  
+  .loader-name {
+    font-size: 1.5rem;
+  }
+  
+  .loader-progress-container {
+    width: 10rem;
+  }
 }

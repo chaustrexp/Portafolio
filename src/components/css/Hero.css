@@ -1,265 +1,260 @@
 /* ===================================
-   HERO SPLIT SCREEN STYLES
+   HERO PROFESIONAL ADSO - TEMA OSCURO
    =================================== */
 
-/* Animaciones personalizadas */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Importar Inter desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Variables CSS para tema oscuro */
+:root {
+  /* Tema Claro - Paleta Simple y Profesional */
+  --bg-primary: #FFFFFF;      /* Fondo principal */
+  --bg-secondary: #F3F4F6;    /* Cards */
+  --text-primary: #000000;    /* Títulos */
+  --text-secondary: #111827;  /* Texto principal */
+  --text-tertiary: #6B7280;   /* Texto tenue */
+  --accent-primary: #111827;  /* Acentos principales */
+  --accent-hover: #374151;    /* Hover states */
+  --btn-primary-color: #FFFFFF; /* Texto blanco para botón primario */
+  --btn-secondary-color: #111827; /* Texto oscuro para botón secundario */
+  --border-color: #E5E7EB;    /* Bordes */
 }
 
-/* Estilos para iconos sociales verticales */
-.social-icons-vertical {
-  position: fixed;
-  left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+/* Tema Oscuro - Paleta Simple y Profesional Optimizada */
+[data-theme="dark"] {
+  --bg-primary: #0F172A;      /* Fondo principal más oscuro */
+  --bg-secondary: #1E293B;    /* Cards más definidas */
+  --text-primary: #F8FAFC;    /* Títulos más brillantes */
+  --text-secondary: #E2E8F0;  /* Texto principal más claro */
+  --text-tertiary: #94A3B8;   /* Texto tenue con buen contraste */
+  --accent-primary: #E2E8F0;  /* Acentos principales claros */
+  --accent-hover: #CBD5E1;    /* Hover states suaves */
+  --btn-primary-color: #111827; /* Texto oscuro para botón primario */
+  --btn-secondary-color: #E2E8F0; /* Texto claro para botón secundario */
+  --border-color: #334155;    /* Bordes bien definidos */
 }
 
-.social-icon {
-  color: #F8F8F8;
-  transition: color 0.3s ease;
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.social-icon:hover {
-  color: #CCCCCC;
-}
-
-.follow-text {
-  margin-top: 2rem;
-  color: #999999;
-  font-size: 0.875rem;
-  transform: rotate(90deg);
-  transform-origin: center;
-  white-space: nowrap;
-}
-
-/* Contenedor principal split */
-.hero-split-container {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-}
-
-/* Lado izquierdo - Texto */
-.hero-left-side {
-  width: 50%;
+/* Sección principal - Adaptable a tema */
+.hero-professional {
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 5rem;
-  padding-right: 2rem;
+  background: var(--bg-primary);
+  padding: 8rem 0 6rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.3s ease;
 }
 
-.hero-content-wrapper {
-  max-width: 28rem;
-  animation: fadeInUp 1s ease forwards;
+/* Contenedor */
+.hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
 }
 
-.hero-main-title {
-  font-size: 3.5rem;
-  font-weight: 300;
-  color: #F8F8F8;
-  line-height: 1.2;
+/* Contenido centrado */
+.hero-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Avatar profesional */
+.hero-avatar {
   margin-bottom: 1rem;
 }
 
-.hero-subtitle {
-  font-size: 1.875rem;
-  font-weight: 300;
-  color: #F8F8F8;
-  margin-bottom: 2rem;
+.avatar-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent-primary);
+  box-shadow: 0 8px 32px rgba(100, 116, 139, 0.2);
+  transition: all 0.3s ease;
 }
 
+.avatar-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(100, 116, 139, 0.3);
+  border-color: var(--accent-hover);
+}
+
+/* Información principal */
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Espaciado profesional */
+  max-width: 600px;
+}
+
+/* Nombre - Jerarquía máxima */
+.hero-name {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-primary); /* Adaptable al tema */
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Rol ADSO - Identidad profesional */
+.hero-role {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--accent-primary); /* Adaptable al tema */
+  margin: 0;
+  letter-spacing: 0.02em;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Descripción profesional */
 .hero-description {
-  color: #E5E5E5;
   font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--text-secondary); /* Adaptable al tema */
+  margin: 0;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  max-width: 500px;
+  text-align: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
 }
 
-.hero-buttons-container {
+/* Botones profesionales */
+.hero-actions {
   display: flex;
   gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
-.hero-btn {
-  padding: 0.75rem 2rem;
-  background: transparent;
-  border: 1px solid #F8F8F8;
-  color: #F8F8F8;
+.btn-primary,
+.btn-secondary {
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
   font-weight: 500;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 140px;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-.hero-btn:hover {
-  background: #F8F8F8;
-  color: #000000;
+/* Botón principal - Elegant */
+.btn-primary {
+  background: var(--accent-primary); /* Adaptable al tema */
+  color: var(--btn-primary-color);
+  box-shadow: 0 4px 12px rgba(100, 116, 139, 0.2);
+  transition: all 0.3s ease;
 }
 
-/* Lado derecho - Imagen */
-.hero-right-side {
-  width: 50%;
-  position: relative;
+.btn-primary:hover {
+  background: var(--accent-hover); /* Adaptable al tema */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(100, 116, 139, 0.3);
 }
 
-.hero-image-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.2));
-  z-index: 10;
+/* Botón secundario - Outline elegante */
+.btn-secondary {
+  background: transparent;
+  color: var(--btn-secondary-color); /* Adaptable al tema */
+  border: 2px solid var(--accent-primary);
+  transition: all 0.3s ease;
 }
 
-.hero-main-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%);
-  transition: filter 0.7s ease;
+.btn-secondary:hover {
+  background: var(--accent-primary);
+  color: var(--btn-primary-color);
 }
 
-.hero-main-image:hover {
-  filter: grayscale(0%);
-}
-
-/* Puntos decorativos */
-.decorative-dot-1 {
-  position: absolute;
-  top: 5rem;
-  right: 5rem;
-  width: 0.75rem;
-  height: 0.75rem;
-  background: #F8F8F8;
-  border-radius: 50%;
-  animation: pulse 2s ease infinite;
-}
-
-.decorative-dot-2 {
-  position: absolute;
-  bottom: 8rem;
-  right: 8rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  background: #CCCCCC;
-  border-radius: 50%;
-  animation: pulse 2s ease infinite;
-  animation-delay: 1s;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .hero-left-side {
-    padding-left: 3rem;
-  }
-  
-  .hero-main-title {
-    font-size: 3rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.5rem;
-  }
-}
-
+/* Responsive - Mobile First */
 @media (max-width: 768px) {
-  .hero-split-container {
-    flex-direction: column;
+  .hero-professional {
+    min-height: 80vh;
+    padding: 6rem 0 4rem;
   }
   
-  .hero-left-side,
-  .hero-right-side {
-    width: 100%;
+  .hero-container {
+    padding: 0 1.5rem;
   }
   
-  .hero-left-side {
-    padding: 2rem;
-    min-height: 60vh;
+  .hero-content {
+    gap: 1.5rem;
   }
   
-  .hero-right-side {
-    min-height: 40vh;
+  .hero-info {
+    gap: 1.25rem;
   }
   
-  .social-icons-vertical {
-    display: none;
+  .avatar-image {
+    width: 100px;
+    height: 100px;
   }
   
-  .hero-main-title {
-    font-size: 2.5rem;
-    text-align: center;
+  .hero-name {
+    font-size: clamp(2rem, 8vw, 2.8rem);
   }
   
-  .hero-subtitle {
+  .hero-role {
     font-size: 1.25rem;
-    text-align: center;
-  }
-  
-  .hero-description {
-    text-align: center;
-  }
-  
-  .hero-buttons-container {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .decorative-dot-1 {
-    top: 2rem;
-    right: 2rem;
-  }
-  
-  .decorative-dot-2 {
-    bottom: 2rem;
-    right: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-left-side {
-    padding: 1rem;
-  }
-  
-  .hero-main-title {
-    font-size: 2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.125rem;
   }
   
   .hero-description {
     font-size: 1rem;
   }
   
-  .hero-buttons-container {
+  .hero-actions {
     flex-direction: column;
+    align-items: center;
     gap: 0.75rem;
+    width: 100%;
   }
   
-  .hero-btn {
+  .btn-primary,
+  .btn-secondary {
     width: 100%;
-    text-align: center;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-professional {
+    padding: 5rem 0 3rem;
+  }
+  
+  .hero-container {
+    padding: 0 1rem;
+  }
+  
+  .hero-content {
+    gap: 1.25rem;
+  }
+  
+  .hero-info {
+    gap: 1rem;
+  }
+  
+  .avatar-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
   }
 }

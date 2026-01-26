@@ -45,15 +45,12 @@ const Experience = () => {
   ];
 
   return (
-    // Sección principal con fondo oscuro moderno
-    <section id="experience" className="py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-      {/* Efectos de fondo mejorados */}
+    // Sección principal con fondo limpio
+    <section id="experience" className="py-24 relative overflow-hidden" style={{background: 'rgba(23, 23, 24, 0.95)', backdropFilter: 'blur(20px)'}}>
+      {/* Fondo simplificado */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        {/* Gradientes animados */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-oatmilk-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-oatmilk-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        {/* Solo un gradiente sutil */}
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-oatmilk-500/3 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">

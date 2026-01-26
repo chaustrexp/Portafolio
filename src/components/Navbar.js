@@ -1,168 +1,172 @@
 import React, { useState, useEffect } from 'react';
+import './css/Navbar.css';
 
 /**
- * Componente Navbar - Barra de navegación moderna del portafolio
+ * Navbar - Diseño Profesional ADSO con Theme Toggle
  * 
- * Navbar con diseño moderno tipo toggle/switch y navegación suave.
- * 
- * @component
- * @returns {JSX.Element} Barra de navegación moderna
+ * Identidad mantenida:
+ * - Color principal: #2563eb (azul)
+ * - Tipografía: Inter
+ * - Estilo limpio y profesional
+ * - Soporte para tema oscuro
  */
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [scrolled, setScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
-  // Secciones de navegación
-  const navItems = [
-    { name: 'Inicio', id: 'hero' },
-    { name: 'Experiencia', id: 'experience' },
-    { name: 'Habilidades', id: 'skills' },
-    { name: 'Certificados', id: 'certificates' },
-    { name: 'Hobbies', id: 'hobbies' },
-    { name: 'Proyectos', id: 'projects' },
-    { name: 'Contacto', id: 'contact' }
-  ];
+  useEffect(() => {
+    // Verificar tema guardado en localStorage
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDarkTheme(true);
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  }, []);
 
-  // Detectar scroll
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
+      setIsScrolled(window.scrollY > 20);
+      
+      // Detectar sección activa
+      const sections = ['hero', 'about', 'skills', 'projects', 'hobbies', 'contact'];
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Navegación suave
+  const toggleTheme = () => {
+    const newTheme = !isDarkTheme;
+    setIsDarkTheme(newTheme);
+    
+    if (newTheme) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  };
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-      setIsOpen(false);
+      setIsMobileMenuOpen(false);
     }
   };
 
+  // Navegación profesional
+  const navItems = [
+    { id: 'hero', label: 'Inicio' },
+    { id: 'about', label: 'Sobre mí' },
+    { id: 'skills', label: 'Habilidades' },
+    { id: 'projects', label: 'Proyectos' },
+    { id: 'hobbies', label: 'Pasatiempos' },
+    { id: 'contact', label: 'Contacto' }
+  ];
+
   return (
     <>
-      {/* Navbar Desktop - Estilo moderno flotante */}
-      <nav className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 hidden lg:block ${
-        scrolled ? 'scale-95' : 'scale-100'
-      }`}>
-        <div className="bg-white/90 backdrop-blur-xl border border-oatmilk-200/50 rounded-full px-2 py-2 shadow-2xl shadow-oatmilk-400/10">
-          <div className="flex items-center space-x-1 relative">
-            {/* Indicador deslizante */}
-            <div 
-              className="absolute top-1 bottom-1 bg-gradient-to-r from-oatmilk-400 to-oatmilk-500 rounded-full transition-all duration-300 ease-out shadow-lg z-0"
-              style={{
-                left: `${navItems.findIndex(item => item.id === activeSection) * 110 + 4}px`,
-                width: '102px'
-              }}
-            />
+      <nav className={`navbar-professional ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="navbar-container">
+          
+          {/* Brand profesional con foto de perfil */}
+          <div className="navbar-brand" onClick={() => scrollToSection('hero')}>
+            <div className="brand-avatar">
+              <img 
+                src="/img/foto de perfil mientras.jpg" 
+                alt="Cristian Contreras"
+                className="brand-avatar-image"
+              />
+            </div>
+            <div className="brand-info">
+              <span className="brand-name">Cristian Contreras</span>
+              <span className="brand-title">ADSO Developer</span>
+            </div>
+          </div>
+
+          {/* Navegación desktop */}
+          <div className="navbar-nav">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                onClick={() => scrollToSection(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
             
-            {/* Items de navegación */}
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`relative z-10 px-4 py-2 rounded-full font-medium transition-all duration-300 text-sm whitespace-nowrap ${
-                  activeSection === item.id 
-                    ? 'text-white' 
-                    : 'text-oatmilk-700 hover:text-oatmilk-900'
-                }`}
-                style={{ minWidth: '102px' }}
-              >
-                {item.name}
-              </button>
-            ))}
+            {/* Theme Toggle */}
+            <button
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={isDarkTheme ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+              title={isDarkTheme ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+            >
+              {isDarkTheme ? '☀️' : '🌙'}
+            </button>
           </div>
+
+          {/* Botón móvil */}
+          <button
+            className={`mobile-toggle ${isMobileMenuOpen ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        {/* Menú móvil */}
+        <div className={`mobile-nav ${isMobileMenuOpen ? 'active' : ''}`}>
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+              onClick={() => scrollToSection(item.id)}
+            >
+              {item.label}
+            </button>
+          ))}
+          
+          {/* Theme Toggle Mobile */}
+          <button
+            className="mobile-theme-toggle"
+            onClick={toggleTheme}
+            aria-label={isDarkTheme ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+          >
+            {isDarkTheme ? '☀️ Tema Claro' : '🌙 Tema Oscuro'}
+          </button>
         </div>
       </nav>
 
-      {/* Navbar Mobile - Estilo hamburguesa moderna */}
-      <nav className="fixed top-0 left-0 right-0 z-50 lg:hidden">
-        <div className={`bg-white/95 backdrop-blur-xl border-b border-oatmilk-200/50 transition-all duration-300 ${
-          scrolled ? 'shadow-xl' : 'shadow-lg'
-        }`}>
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="flex justify-between items-center py-4">
-              
-              {/* Logo */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-oatmilk-400 to-oatmilk-500 rounded-xl flex items-center justify-center font-bold text-white shadow-lg">
-                  CC
-                </div>
-                <span className="font-bold text-lg text-oatmilk-900">
-                  Cristian Contreras
-                </span>
-              </div>
-
-              {/* Botón hamburguesa moderno */}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="relative w-10 h-10 bg-oatmilk-100 rounded-xl flex items-center justify-center hover:bg-oatmilk-200 transition-all duration-300 shadow-md"
-              >
-                <div className="w-5 h-5 flex flex-col justify-center items-center">
-                  <span className={`w-4 h-0.5 bg-oatmilk-700 transition-all duration-300 ${
-                    isOpen ? 'rotate-45 translate-y-0.5' : '-translate-y-1'
-                  }`}></span>
-                  <span className={`w-4 h-0.5 bg-oatmilk-700 transition-all duration-300 ${
-                    isOpen ? 'opacity-0' : 'opacity-100'
-                  }`}></span>
-                  <span className={`w-4 h-0.5 bg-oatmilk-700 transition-all duration-300 ${
-                    isOpen ? '-rotate-45 -translate-y-0.5' : 'translate-y-1'
-                  }`}></span>
-                </div>
-              </button>
-            </div>
-
-            {/* Menú móvil desplegable */}
-            <div className={`overflow-hidden transition-all duration-300 ${
-              isOpen ? 'max-h-96 pb-4' : 'max-h-0'
-            }`}>
-              <div className="space-y-2">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                      activeSection === item.id
-                        ? 'bg-gradient-to-r from-oatmilk-400 to-oatmilk-500 text-white shadow-lg'
-                        : 'text-oatmilk-700 hover:bg-oatmilk-100'
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Navbar Tablet - Barra inferior */}
-      <nav className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block lg:hidden">
-        <div className="bg-white/95 backdrop-blur-xl border border-oatmilk-200/50 rounded-full px-3 py-2 shadow-2xl shadow-oatmilk-400/10">
-          <div className="flex items-center space-x-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`px-3 py-2 rounded-full font-medium transition-all duration-300 text-xs ${
-                  activeSection === item.id 
-                    ? 'bg-gradient-to-r from-oatmilk-400 to-oatmilk-500 text-white shadow-lg' 
-                    : 'text-oatmilk-600 hover:text-oatmilk-900 hover:bg-oatmilk-100'
-                }`}
-                title={item.name}
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
+      {/* Overlay móvil */}
+      {isMobileMenuOpen && (
+        <div 
+          className="mobile-overlay"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
     </>
   );
 };

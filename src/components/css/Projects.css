@@ -1,414 +1,304 @@
 /* ===================================
-   PROJECTS COMPONENT STYLES
+   PROJECTS PROFESIONAL ADSO - TEMA OSCURO
    =================================== */
 
-.projects-section {
-  padding: 5rem 0;
-  background: linear-gradient(180deg, #F5F0E8 0%, #F8F4EF 100%);
-  position: relative;
+/* Importar Inter y Font Awesome */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Variables CSS para tema */
+:root {
+  /* Tema Claro - Paleta Simple y Profesional */
+  --projects-bg: #FFFFFF;        /* Fondo principal */
+  --projects-title-color: #000000; /* Títulos */
+  --projects-desc-color: #6B7280;  /* Texto tenue */
+  --projects-card-bg: #F3F4F6;     /* Cards */
+  --projects-card-border: #E5E7EB; /* Bordes */
+  --projects-card-border-hover: #111827; /* Acentos principales */
+  --projects-category-color: #374151; /* Texto secundario */
+  --projects-title-card-color: #000000; /* Títulos */
+  --projects-desc-card-color: #111827; /* Texto principal */
+  --projects-tech-bg: #FFFFFF;    /* Fondo principal */
+  --projects-tech-color: #374151; /* Texto secundario */
+  --projects-tech-border: #E5E7EB; /* Bordes */
+  --projects-tech-hover-bg: rgba(17, 24, 39, 0.1); /* Acentos con transparencia */
+  --projects-tech-hover-color: #111827; /* Acentos principales */
+  --projects-tech-hover-border: rgba(17, 24, 39, 0.2);
 }
 
+/* Tema Oscuro - Paleta Simple y Profesional Optimizada */
+[data-theme="dark"] {
+  --projects-bg: #0F172A;         /* Fondo principal más oscuro */
+  --projects-title-color: #F8FAFC; /* Títulos más brillantes */
+  --projects-desc-color: #94A3B8;  /* Texto tenue con buen contraste */
+  --projects-card-bg: #1E293B;     /* Cards más definidas */
+  --projects-card-border: #334155; /* Bordes bien definidos */
+  --projects-card-border-hover: #E2E8F0; /* Acentos principales claros */
+  --projects-category-color: #CBD5E1; /* Texto secundario bien visible */
+  --projects-title-card-color: #F8FAFC; /* Títulos más brillantes */
+  --projects-desc-card-color: #E2E8F0; /* Texto principal más claro */
+  --projects-tech-bg: #0F172A;     /* Fondo principal más oscuro */
+  --projects-tech-color: #CBD5E1;  /* Texto secundario bien visible */
+  --projects-tech-border: #334155; /* Bordes bien definidos */
+  --projects-tech-hover-bg: rgba(226, 232, 240, 0.1); /* Acentos con transparencia */
+  --projects-tech-hover-color: #E2E8F0; /* Acentos principales claros */
+  --projects-tech-hover-border: rgba(226, 232, 240, 0.2);
+}
+
+/* Sección principal */
+.projects-professional {
+  padding: 6rem 0;
+  background: var(--projects-bg);
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+/* Contenedor */
 .projects-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
-.projects-title {
-  font-size: 3.2rem;
-  font-weight: 800;
+/* Contenido centrado */
+.projects-content {
   text-align: center;
-  margin-bottom: 4rem;
-  color: #000000;
-  position: relative;
-  padding-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-.projects-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: #000000;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+/* Título profesional */
+.projects-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--projects-title-color);
+  margin: 0;
+  letter-spacing: -0.01em;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
 }
 
-/* Grid de proyectos */
+/* Descripción profesional */
+.projects-description {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--projects-desc-color);
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Grid profesional */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  text-align: left;
+  margin-top: 1rem;
 }
 
-/* Tarjeta de proyecto */
+/* Card profesional */
 .project-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(248, 244, 239, 0.95));
-  border-radius: 24px;
+  background: var(--projects-card-bg);
+  border: 1px solid var(--projects-card-border);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(61, 58, 57, 0.1);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 2px solid rgba(61, 58, 57, 0.1);
-  backdrop-filter: blur(10px);
-  position: relative;
   cursor: pointer;
-}
-
-/* Efecto de hover en el fondo */
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(61, 58, 57, 0.05), rgba(248, 244, 239, 0.2));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.project-card:hover::before {
-  opacity: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .project-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 25px 70px rgba(61, 58, 57, 0.2), 
-              0 0 50px rgba(61, 58, 57, 0.15);
-  border-color: rgba(61, 58, 57, 0.3);
+  border-color: var(--projects-card-border-hover);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.12);
+  transform: translateY(-4px);
 }
 
-/* Imagen del proyecto */
+/* Imagen profesional */
 .project-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
   position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-  filter: brightness(0.9);
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.1);
-  filter: brightness(1);
-}
-
-/* Overlay en la imagen */
-.project-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(248, 244, 239, 0.1) 50%,
-    rgba(248, 244, 239, 0.3) 100%
-  );
-  transition: opacity 0.3s ease;
-}
-
-.project-card:hover .project-image::after {
-  opacity: 0.7;
-}
-
-/* Contenido del proyecto */
-.project-content {
-  padding: 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-.project-title {
-  color: #3D3A39;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-shadow: none;
-  transition: color 0.3s ease;
-  line-height: 1.3;
-}
-
-.project-card:hover .project-title {
-  color: #000000;
-}
-
-.project-description {
-  color: #5A5755;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-  text-align: justify;
-  hyphens: auto;
-  transition: color 0.3s ease;
-}
-
-.project-card:hover .project-description {
-  color: #3D3A39;
-}
-
-/* Botón del proyecto */
-.project-button {
-  background: linear-gradient(135deg, #F8F4EF, #F0E6D9);
-  color: #3D3A39;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(245, 240, 232, 0.4);
-  border: 1px solid rgba(61, 58, 57, 0.1);
-  text-decoration: none;
-  display: inline-block;
-}
-
-.project-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.project-button:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-.project-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(245, 240, 232, 0.6),
-              0 0 30px rgba(245, 240, 232, 0.3);
-  background: linear-gradient(135deg, #F0E6D9, #EDE3D6);
-  border-color: rgba(61, 58, 57, 0.2);
-}
-
-.project-card:hover .project-button {
-  box-shadow: 0 6px 25px rgba(245, 240, 232, 0.7);
-}
-
-/* Indicador de enlace externo */
-.project-button.external::after {
-  content: '↗';
-  margin-left: 0.5rem;
-  font-size: 0.8rem;
   transition: transform 0.3s ease;
 }
 
-.project-button.external:hover::after {
-  transform: translate(2px, -2px);
+.project-card:hover .project-image img {
+  transform: scale(1.05);
 }
 
-/* Animaciones de entrada */
-.project-card {
+/* Overlay profesional */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(37, 99, 235, 0.9); /* Color principal azul */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
-  transform: translateY(30px);
-  animation: projectCardFadeIn 0.6s ease forwards;
+  transition: opacity 0.3s ease;
 }
 
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-.project-card:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes projectCardFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.project-card:hover .project-overlay {
+  opacity: 1;
 }
 
-/* Estados especiales para proyectos destacados */
-.project-card.featured {
-  border-color: rgba(255, 215, 0, 0.3);
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(248, 244, 239, 0.95));
+.project-overlay i {
+  color: #ffffff;
+  font-size: 1.5rem;
 }
 
-.project-card.featured::before {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(248, 244, 239, 0.2));
+/* Información profesional */
+.project-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.project-card.featured:hover {
-  box-shadow: 0 25px 70px rgba(255, 215, 0, 0.2), 
-              0 0 50px rgba(255, 215, 0, 0.15);
-  border-color: rgba(255, 215, 0, 0.5);
+/* Categoría */
+.project-category {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--projects-category-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Título del proyecto */
+.project-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--projects-title-card-color);
+  margin: 0;
+  line-height: 1.3;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Descripción */
+.project-description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--projects-desc-card-color);
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Tecnologías */
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tech-badge {
+  background: var(--projects-tech-bg);
+  color: var(--projects-tech-color);
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--projects-tech-border);
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .tech-badge {
+  background: var(--projects-tech-hover-bg);
+  color: var(--projects-tech-hover-color);
+  border-color: var(--projects-tech-hover-border);
 }
 
 /* Responsive */
-@media (max-width: 968px) {
-  .projects-section {
+@media (max-width: 768px) {
+  .projects-professional {
     padding: 4rem 0;
   }
   
-  .projects-title {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+  .projects-container {
+    padding: 0 1.5rem;
   }
   
-  .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .project-content {
-    padding: 1.5rem;
-  }
-  
-  .project-title {
-    font-size: 1.3rem;
-  }
-  
-  .project-description {
-    font-size: 0.9rem;
-    margin-bottom: 1.25rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .project-card {
-    margin-bottom: 1rem;
-  }
-  
-  .project-description {
-    text-align: left;
-  }
-}
-
-@media (max-width: 480px) {
-  .projects-section {
-    padding: 3rem 0;
+  .projects-content {
+    gap: 2.5rem;
   }
   
   .projects-title {
     font-size: 2rem;
-    margin-bottom: 2rem;
+  }
+  
+  .projects-description {
+    font-size: 1rem;
   }
   
   .projects-grid {
-    gap: 1rem;
-  }
-  
-  .project-content {
-    padding: 1rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   
   .project-image {
-    height: 160px;
+    height: 200px;
+  }
+  
+  .project-info {
+    padding: 1.5rem;
   }
   
   .project-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-professional {
+    padding: 3rem 0;
+  }
+  
+  .projects-container {
+    padding: 0 1rem;
+  }
+  
+  .projects-content {
+    gap: 2rem;
+  }
+  
+  .projects-title {
+    font-size: 1.75rem;
+  }
+  
+  .projects-grid {
+    gap: 1.5rem;
+  }
+  
+  .project-image {
+    height: 180px;
+  }
+  
+  .project-info {
+    padding: 1.25rem;
+  }
+  
+  .project-title {
+    font-size: 1.125rem;
   }
   
   .project-description {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    font-size: 0.95rem;
   }
-  
-  .project-button {
-    font-size: 0.85rem;
-    padding: 10px 24px;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Efectos adicionales */
-.project-card:hover {
-  cursor: pointer;
-}
-
-/* Efecto de carga de imagen */
-.project-image img {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-.project-image img[src] {
-  animation: none;
-  background: none;
-}
-
-/* Efecto de brillo en hover */
-.project-card::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(248, 244, 239, 0.1) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.project-card:hover::after {
-  opacity: 1;
-}
-
-/* Indicadores de tecnología */
-.project-tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.project-tech-tag {
-  background: rgba(61, 58, 57, 0.1);
-  color: #3D3A39;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border: 1px solid rgba(61, 58, 57, 0.1);
-  transition: all 0.3s ease;
-}
-
-.project-card:hover .project-tech-tag {
-  background: rgba(61, 58, 57, 0.15);
-  border-color: rgba(61, 58, 57, 0.2);
 }
