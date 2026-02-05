@@ -75,50 +75,51 @@ const Projects = () => {
       <div className="projects-container">
         <div className="projects-content">
           
-          {/* Título profesional */}
-          <h2 className="projects-title">Proyectos Destacados</h2>
-          
-          {/* Descripción breve */}
-          <p className="projects-description">
-            Algunos de mis trabajos más representativos como desarrollador ADSO
-          </p>
+          {/* Título con línea decorativa */}
+          <div className="projects-header">
+            <h2 className="projects-title">Proyectos y Experiencia</h2>
+            <div className="projects-title-line"></div>
+          </div>
 
           {/* Grid de proyectos */}
           <div className="projects-grid">
             {projects.map((project, index) => (
-              <div key={index} className="project-card">
+              <a 
+                key={index} 
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-card"
+              >
                 
-                {/* Icono circular de color */}
+                {/* Icono circular de color centrado */}
                 <div className="project-icon" style={{ backgroundColor: project.iconColor }}>
                   <i className={`fas ${project.icon}`}></i>
                 </div>
 
                 {/* Título con enlace externo */}
                 <div className="project-header">
-                  <h3 className="project-title">{project.title}</h3>
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="project-external-link"
-                    aria-label={`Ver proyecto ${project.title}`}
-                  >
+                  <h3 className="project-title">
+                    {project.title}
                     <i className="fas fa-external-link-alt"></i>
-                  </a>
+                  </h3>
                 </div>
 
                 {/* Descripción */}
                 <p className="project-description">{project.description}</p>
 
-                {/* Lista de características con checkmarks */}
-                <ul className="project-features">
-                  {project.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="feature-item">
-                      <i className="fas fa-check-circle"></i>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Sección de Características */}
+                <div className="project-features-section">
+                  <h4 className="features-title">Características</h4>
+                  <ul className="project-features">
+                    {project.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="feature-item">
+                        <i className="fas fa-check-circle"></i>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 {/* Badges de tecnologías */}
                 <div className="project-technologies">
@@ -129,17 +130,14 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Enlace para ver el proyecto */}
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  Haz clic para ver el proyecto
-                  <i className="fas fa-arrow-right"></i>
-                </a>
-              </div>
+                {/* Texto inferior */}
+                <div className="project-footer">
+                  <span className="project-link-text">
+                    Haz clic para ver el proyecto
+                    <i className="fas fa-arrow-right"></i>
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
