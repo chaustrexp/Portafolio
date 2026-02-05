@@ -27,9 +27,9 @@ const Projects = () => {
       technologies: ["React", "JavaScript", "CSS", "Vercel"]
     },
     {
-      title: "BakerySoft",
+      title: "BakerySoft System",
       description: "Sistema de gestión integral para panaderías con control de inventario, ventas y administración completa del negocio.",
-      link: "https://bakery-manager-16yr8mwly-cristians-projects-6060941c.vercel.app/",
+      link: "https://bakerysoft-system.vercel.app/",
       icon: "fa-bread-slice",
       iconColor: "#F59E0B", // Naranja
       features: [
