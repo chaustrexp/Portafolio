@@ -13,6 +13,20 @@ const Projects = () => {
   // Proyectos destacados con características
   const projects = [
     {
+      title: "HighMed",
+      description: "Plataforma médica digital para gestión de citas, historias clínicas y administración de pacientes con sistema de autenticación.",
+      link: "https://highmed.vercel.app/auth",
+      icon: "fa-hospital",
+      iconColor: "#EF4444", // Rojo
+      features: [
+        "Sistema de autenticación seguro",
+        "Gestión de citas médicas",
+        "Historias clínicas digitales",
+        "Panel administrativo completo"
+      ],
+      technologies: ["React", "TypeScript", "Firebase", "Vercel"]
+    },
+    {
       title: "Banco Express",
       description: "Plataforma bancaria digital completa con funcionalidades de transferencias, consulta de saldos y panel administrativo.",
       link: "https://banco-express-qxkz.vercel.app/",
