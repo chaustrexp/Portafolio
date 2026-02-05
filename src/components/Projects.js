@@ -69,6 +69,20 @@ const Projects = () => {
       technologies: ["HTML5", "CSS3", "JavaScript", "Vercel"]
     },
     {
+      title: "Hoja de Vida Digital",
+      description: "Currículum vitae interactivo y profesional con diseño moderno, optimizado para visualización web y descarga en PDF.",
+      link: "https://hoja-de-vida-kohl.vercel.app/",
+      icon: "fa-file-alt",
+      iconColor: "#6366F1", // Índigo
+      features: [
+        "Diseño profesional y moderno",
+        "Formato interactivo web",
+        "Responsive y adaptable",
+        "Optimizado para impresión"
+      ],
+      technologies: ["HTML5", "CSS3", "JavaScript", "Vercel"]
+    },
+    {
       title: "Portafolio Web Personal",
       description: "Portafolio profesional desarrollado con React, diseño moderno con tema oscuro/claro y secciones interactivas.",
       link: "https://github.com/chaustrexp/Portafolio",
